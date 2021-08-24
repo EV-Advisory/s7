@@ -44,6 +44,7 @@ select_server <-
            selected = NULL,
            width = NULL) {
 
+    session$ns->ns
     label = hrimodules:::to_reactive(label)
     choices = hrimodules:::to_reactive(choices)
     selected = hrimodules:::to_reactive(selected)
