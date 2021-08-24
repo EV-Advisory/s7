@@ -20,7 +20,6 @@ select_ui <- function(id) {
 
 #' Framework 7 select server-side logic
 #'
-#'
 #' @description The server-side function used in
 #' shinyMobile developed shiny applications
 #' @param input list of inputs used in the shiny application session
@@ -32,6 +31,7 @@ select_ui <- function(id) {
 #' @param width Width of the select UI
 #'
 #' @export
+#' @import magrittr
 #' @importFrom shinyMobile f7Select
 
 
@@ -43,8 +43,7 @@ select_server <-
            choices,
            selected = NULL,
            width = NULL) {
-
-    session$ns->ns
+    session$ns -> ns
     label = hrimodules:::to_reactive(label)
     choices = hrimodules:::to_reactive(choices)
     selected = hrimodules:::to_reactive(selected)
@@ -59,5 +58,7 @@ select_server <-
         width = width()
       )
     })
+
+    return(list(selected = reactive(input[['select']])))
 
   }
