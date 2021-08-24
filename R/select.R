@@ -43,7 +43,8 @@ select_server <-
            label,
            choices,
            selected = NULL,
-           width = NULL) {
+           width = NULL,
+           req_ = NULL) {
     session$ns -> ns
     label = to_reactive(label)
     choices = to_reactive(choices)
@@ -51,6 +52,7 @@ select_server <-
     width = to_reactive(width)
 
     output[['select']] <- renderUI({
+      if(!is.null(req_))req(eval(parse(paste0(req_))))
       shinyMobile::f7Select(
         inputId = ns("select"),
         label = label(),

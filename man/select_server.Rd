@@ -11,7 +11,8 @@ select_server(
   label,
   choices,
   selected = NULL,
-  width = NULL
+  width = NULL,
+  req_ = NULL
 )
 }
 \arguments{
