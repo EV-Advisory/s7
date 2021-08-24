@@ -63,7 +63,6 @@ f7li_server <-
 
     output[['li']] <- renderUI({
       req(lapply(ls(envir = parent.frame()), function(x) {
-        print(paste0(x, "()"))
         eval(parse(text = paste0(x, "()")))
       }))
 
