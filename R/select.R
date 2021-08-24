@@ -10,6 +10,7 @@
 #'
 #'@importFrom shiny NS
 #'@importFrom shiny uiOutput
+#'@export
 
 
 select_ui <- function(id) {
@@ -44,10 +45,10 @@ select_server <-
            selected = NULL,
            width = NULL) {
     session$ns -> ns
-    label = hrimodules:::to_reactive(label)
-    choices = hrimodules:::to_reactive(choices)
-    selected = hrimodules:::to_reactive(selected)
-    width = hrimodules:::to_reactive(width)
+    label = to_reactive(label)
+    choices = to_reactive(choices)
+    selected = to_reactive(selected)
+    width = to_reactive(width)
 
     output[['select']] <- renderUI({
       shinyMobile::f7Select(

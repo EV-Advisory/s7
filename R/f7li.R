@@ -35,7 +35,6 @@ f7li_ui <- function(id) {
 #' @param ... Item text
 #'
 #' @import shiny
-#' @import hrimodules
 #' @import shinyMobile
 #'
 #' @export
@@ -53,13 +52,13 @@ f7li_server <-
            right = NULL,
            ...) {
 
-    t_ <- hrimodules:::to_reactive(title)
-    s_ <- hrimodules:::to_reactive(subtitle)
-    h_ <- hrimodules:::to_reactive(header)
-    f_ <- hrimodules:::to_reactive(footer)
-    hr_ <- hrimodules:::to_reactive(href)
-    m_ <- hrimodules:::to_reactive(media)
-    ri_ <- hrimodules:::to_reactive(right)
+    t_ <- to_reactive(title)
+    s_ <- to_reactive(subtitle)
+    h_ <- to_reactive(header)
+    f_ <- to_reactive(footer)
+    hr_ <- to_reactive(href)
+    m_ <- to_reactive(media)
+    ri_ <- to_reactive(right)
 
     output[['li']] <- renderUI({
       req(lapply(ls(envir = parent.frame()), function(x) {

@@ -10,6 +10,8 @@
 #'
 #'@importFrom shiny NS
 #'@importFrom shiny uiOutput
+#'@export
+
 
 
 smart_select_ui <- function(id) {
@@ -48,12 +50,12 @@ smart_select_server <-
            width = NULL,
            openIn = c('page', 'sheet', 'popup', 'popover')) {
     session$ns -> ns
-    label = hrimodules:::to_reactive(label)
-    choices = hrimodules:::to_reactive(choices)
-    selected = hrimodules:::to_reactive(selected)
-    multiple = hrimodules:::to_reactive(multiple)
-    width = hrimodules:::to_reactive(width)
-    openIn = hrimodules:::to_reactive(openIn)
+    label = to_reactive(label)
+    choices = to_reactive(choices)
+    selected = to_reactive(selected)
+    multiple = to_reactive(multiple)
+    width = to_reactive(width)
+    openIn = to_reactive(openIn)
 
     output[['select']] <- renderUI({
       shinyMobile::f7SmartSelect(
