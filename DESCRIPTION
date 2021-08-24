@@ -1,11 +1,15 @@
 Package: f7
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Framework 7 Modules for PWA development
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Harry Rosen
+Maintainer: Esteban Valencia <evalencia@harryrosen.com>
+Description: The package uses the shinyMobile package as the primary base 
+          of functions that allow a user to create server side functions for 
+          rapid prototyping with a framework 7 compatible functions.
+License: file LICENSE
+Depends: shiny, shinyMobile, magrittr, hrimodules
+Imports: apexcharter, htmlwidgets
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 7.1.1
