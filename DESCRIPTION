@@ -1,7 +1,7 @@
 Package: f7
 Type: Package
 Title: Framework 7 Modules for PWA development
-Version: 0.1.0.998
+Version: 0.1.1.0
 Author: Harry Rosen
 Maintainer: Esteban Valencia <evalencia@harryrosen.com>
 Description: The package uses the shinyMobile package as the primary base 
