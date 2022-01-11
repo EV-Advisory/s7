@@ -12,8 +12,6 @@
 #'@importFrom shiny uiOutput
 #'@export
 
-
-
 smart_select_ui <- function(id) {
   ns <- NS(id)
   uiOutput(ns("select"))
