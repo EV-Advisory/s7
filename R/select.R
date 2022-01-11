@@ -12,7 +12,6 @@
 #'@importFrom shiny uiOutput
 #'@export
 
-
 select_ui <- function(id) {
   ns <- NS(id)
   uiOutput(ns("select"))
@@ -30,6 +29,7 @@ select_ui <- function(id) {
 #' @param choices The choices available for the select UI
 #' @param selected The option selected by default for the select UI
 #' @param width Width of the select UI
+#' @param req_ If a specific requirement is to be included, create a string of R code to evaluate the requirement (i.e. \code{req()})
 #'
 #' @export
 #' @import magrittr

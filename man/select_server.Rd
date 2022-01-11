@@ -29,6 +29,8 @@ select_server(
 \item{selected}{The option selected by default for the select UI}
 
 \item{width}{Width of the select UI}
+
+\item{req_}{If a specific requirement is to be included, create a string of R code to evaluate the requirement (i.e. \code{req()})}
 }
 \description{
 The server-side function used in
