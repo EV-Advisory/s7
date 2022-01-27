@@ -1,4 +1,3 @@
-#'
 #' Framework 7 stepper
 #'
 #' @description The framework 7 stepper input that
@@ -33,6 +32,7 @@ stepper_ui <- function(id) {
 # manual = F,
 # decimalPoint = 4,
 # buttonsEndInputMode = T
+
 #' Framework 7 stepper server-side logic
 #'
 #'
@@ -49,8 +49,6 @@ stepper_ui <- function(id) {
 #'
 #' @export
 #' @importFrom shinyMobile f7Stepper
-
-
 
 stepper_server <-
   function(input,
