@@ -46,7 +46,7 @@ slider_server <- function(input,
   output[['slider-ui']] <- renderUI({
     f7Block(f7Slider(
       inputId = ns("slider"),
-      label = label_(),
+      label = label(),
       min = min_(),
       max = max_(),
       value = value_(),
