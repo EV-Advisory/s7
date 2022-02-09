@@ -4,11 +4,14 @@
 #' numbers or strings
 #'
 #' @param id The id used to reference the slider object
+#' @param container The container for wrapping the render block in HTML
+#' @param class The CSS class specified for the uiOutput function call
 #' @importFrom shiny NS
+#' @importFrom shiny uiOutput
 #' @export
-slider_ui <- function(id) {
+slider_ui <- function(id, container = div,class = "block") {
   ns <- NS(id)
-  uiOutput(ns("slider"))
+  uiOutput(ns("slider-ui"),container = container, class = class)
 }
 
 
@@ -20,10 +23,10 @@ slider_ui <- function(id) {
 #' @param input list of inputs used in the shiny application session
 #' @param output list of outputs used the shiny application session
 #' @param session The shiny app session object
-#' @param label_ The title of the slider object
-#' @param min_ The minimum set for the slider
-#' @param max_ The maximum set for the slider
-#' @param value_ The default value set for the UI
+#' @param label_ The title of the slider object. Accepts \code{reactive()}
+#' @param min_ The minimum set for the slider. Accepts \code{reactive()}
+#' @param max_ The maximum set for the slider. Accepts \code{reactive()}
+#' @param value_ The default value set for the UI. Accepts \code{reactive()}
 #' @param ... Additional fields to be passed into the \code{shinyMobile::f7Slider()}
 #' @export
 
@@ -36,15 +39,19 @@ slider_server <- function(input,
                           value_ = 3,
                           ...) {
   session$ns->ns
-  output[['slider']] <- renderUI({
-    f7Slider(
+  label = to_reactive(label_)
+  min_ = to_reactive(min_)
+  max_ = to_reactive(max_)
+  value_ = to_reactive(value_)
+  output[['slider-ui']] <- renderUI({
+    f7Block(f7Slider(
       inputId = ns("slider"),
-      label = label_,
-      min = min_,
-      max = max_,
-      value = value_,
+      label = label_(),
+      min = min_(),
+      max = max_(),
+      value = value_(),
       ...
-    )
+    ))
   })
 
   return(list(value = reactive(input[['slider']])))

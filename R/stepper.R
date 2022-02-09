@@ -13,7 +13,7 @@
 
 stepper_ui <- function(id) {
   ns <- NS(id)
-  uiOutput(ns("stepper"))
+  uiOutput(ns("stepper-ui"))
 }
 
 
@@ -62,7 +62,7 @@ stepper_server <-
     # Session Namespace
     session$ns -> ns
 
-    output[['stepper']] <- renderUI({
+    output[['stepper-ui']] <- renderUI({
       f7Stepper(
         ns("stepper"),
         label = label,

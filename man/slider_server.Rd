@@ -22,13 +22,13 @@ slider_server(
 
 \item{session}{The shiny app session object}
 
-\item{label_}{The title of the slider object}
+\item{label_}{The title of the slider object. Accepts \code{reactive()}}
 
-\item{min_}{The minimum set for the slider}
+\item{min_}{The minimum set for the slider. Accepts \code{reactive()}}
 
-\item{max_}{The maximum set for the slider}
+\item{max_}{The maximum set for the slider. Accepts \code{reactive()}}
 
-\item{value_}{The default value set for the UI}
+\item{value_}{The default value set for the UI. Accepts \code{reactive()}}
 
 \item{...}{Additional fields to be passed into the \code{shinyMobile::f7Slider()}}
 }

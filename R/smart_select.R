@@ -14,7 +14,7 @@
 
 smart_select_ui <- function(id) {
   ns <- NS(id)
-  uiOutput(ns("select"))
+  uiOutput(ns("select-ui"))
 }
 
 
@@ -32,9 +32,10 @@ smart_select_ui <- function(id) {
 #' @param multiple Logical. Enable multiple selection of choices
 #' @param openIn option for the method of opening smart select
 #' @param width Width of the select UI
+#' @param ... Additional parameters for f7SmartSelect()
 #'
 #' @export
-#' @importFrom shinyMobile f7Select
+#' @importFrom shinyMobile f7SmartSelect
 
 
 smart_select_server <-
@@ -46,7 +47,8 @@ smart_select_server <-
            selected = NULL,
            multiple = F,
            width = NULL,
-           openIn = c('page', 'sheet', 'popup', 'popover')) {
+           openIn = c('page', 'sheet', 'popup', 'popover'),
+           ...) {
     session$ns -> ns
     label = to_reactive(label)
     choices = to_reactive(choices)
@@ -55,7 +57,7 @@ smart_select_server <-
     width = to_reactive(width)
     openIn = to_reactive(openIn)
 
-    output[['select']] <- renderUI({
+    output[['select-ui']] <- renderUI({
       shinyMobile::f7SmartSelect(
         inputId = ns("select"),
         label = label(),

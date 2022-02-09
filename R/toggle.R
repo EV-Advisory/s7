@@ -9,7 +9,7 @@
 
 toggle_ui <- function(id) {
   ns <- NS(id)
-  uiOutput(ns("toggle"))
+  uiOutput(ns("toggle-ui"))
 }
 
 
@@ -41,7 +41,7 @@ toggle_server <-
     checked <- to_reactive(checked)
     color_ <- to_reactive(color_)
 
-    output[['toggle']] <- renderUI({
+    output[['toggle-ui']] <- renderUI({
       f7Toggle(
         inputId = ns("toggle"),
         label = label_(),
