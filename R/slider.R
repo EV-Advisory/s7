@@ -44,14 +44,14 @@ slider_server <- function(input,
   max_ = to_reactive(max_)
   value_ = to_reactive(value_)
   output[['slider-ui']] <- renderUI({
-    f7Block(f7Slider(
+    f7Slider(
       inputId = ns("slider"),
       label = label(),
       min = min_(),
       max = max_(),
       value = value_(),
       ...
-    ))
+    )
   })
 
   return(list(value = reactive(input[['slider']])))

@@ -28,6 +28,7 @@ apex_ui <- function(id) {
 #' @param output list of outputs used the shiny application session
 #' @param session The shiny app session object
 #' @param apexc the input function of an apex chart. Often times a defined reactive function
+#' @param base_data the underlying apex data for refreshing the plot on the module side render
 #'
 #'@import apexcharter
 #'
@@ -38,14 +39,16 @@ apex_ui <- function(id) {
 #'@export
 
 
-apex_server <- function(input, output, session, apexc = NULL) {
+apex_server <- function(input, output, session, apexc = NULL, base_data) {
   session$ns -> ns
 
 
+  apex_obj<-reactiveVal(value = NULL)
   #Output of the visualization
   output[['viz']] <- apexcharter::renderApexchart({
     req(is.reactive(apexc))
-    apexc()
+    apex_obj(isolate(apexc()))
+    apex_obj()
   })
 
   #output of the UI to showcase the visualization
@@ -53,5 +56,13 @@ apex_server <- function(input, output, session, apexc = NULL) {
     req(apexc())
     apexcharter::apexchartOutput(outputId = ns("viz"))
   })
+
+  observeEvent(input$update |apex_obj()!=apexc(),{
+
+    apexchartProxy(ns("viz")) %>%
+      ax_proxy_series(base_data())
+  })
+
+
 
 }
