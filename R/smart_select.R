@@ -52,7 +52,9 @@ smart_select_server <-
     session$ns -> ns
     label = to_reactive(label)
     choices = to_reactive(choices)
-    selected = to_reactive(selected)
+    selected = if(!is.null(selected)) f7:::to_reactive(selected) else reactive({
+      req(choices())
+      choices()[1]})
     multiple = to_reactive(multiple)
     width = to_reactive(width)
     openIn = to_reactive(openIn)
