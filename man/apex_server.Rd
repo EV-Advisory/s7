@@ -4,7 +4,7 @@
 \alias{apex_server}
 \title{Apex Charts}
 \usage{
-apex_server(input, output, session, apexc = NULL)
+apex_server(input, output, session, apexc = NULL, base_data)
 }
 \arguments{
 \item{input}{list of inputs used in the shiny application session}
@@ -14,6 +14,8 @@ apex_server(input, output, session, apexc = NULL)
 \item{session}{The shiny app session object}
 
 \item{apexc}{the input function of an apex chart. Often times a defined reactive function}
+
+\item{base_data}{the underlying apex data for refreshing the plot on the module side render}
 }
 \description{
 An apexchart.js library integration
