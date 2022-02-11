@@ -4,12 +4,15 @@
 #' numbers or strings
 #'
 #' @param id The id used to reference the toggle object
+#' @param container the container wrapper for the toggle UI
+#' @param class the CSS class of the toggle UI rendered, default blank
+
 #' @importFrom shiny NS
 #' @export
 
-toggle_ui <- function(id) {
+toggle_ui <- function(id, container = div,class = "") {
   ns <- NS(id)
-  uiOutput(ns("toggle-ui"))
+  uiOutput(ns("toggle-ui"),container = container, class = class)
 }
 
 

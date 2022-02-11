@@ -38,8 +38,7 @@ apex_ui <- function(id) {
 #'@export
 
 
-apex_server <- function(input, output, session, apexc = NULL) {
-  session$ns -> ns
+apex_server <- function(input, output, session, apexc = NULL, base_data = NULL) {
 
 
   #Output of the visualization
@@ -53,5 +52,11 @@ apex_server <- function(input, output, session, apexc = NULL) {
     req(apexc())
     apexcharter::apexchartOutput(outputId = ns("viz"))
   })
+
+if(!is.null(base_data))observeEvent(input$update | nrow(base_data())>0,{
+
+    apexchartProxy(ns("viz")) %>%
+      ax_proxy_series(base_data())
+  },ignoreInit = T)
 
 }

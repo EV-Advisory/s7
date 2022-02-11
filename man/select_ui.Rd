@@ -4,10 +4,14 @@
 \alias{select_ui}
 \title{Framework 7 select}
 \usage{
-select_ui(id)
+select_ui(id, container = div, class = "")
 }
 \arguments{
 \item{id}{the namespace id of the select UI}
+
+\item{container}{the container wrapper for the select UI}
+
+\item{class}{the CSS class of the select UI rendered, default block}
 }
 \description{
 The framework 7 select input that
