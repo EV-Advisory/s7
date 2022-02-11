@@ -4,10 +4,14 @@
 \alias{toggle_ui}
 \title{Toggle UI in the Framework 7 structure}
 \usage{
-toggle_ui(id)
+toggle_ui(id, container = div, class = "")
 }
 \arguments{
 \item{id}{The id used to reference the toggle object}
+
+\item{container}{the container wrapper for the toggle UI}
+
+\item{class}{the CSS class of the toggle UI rendered, default blank}
 }
 \description{
 A UI-side declaration of the toggle UI used for selecting
