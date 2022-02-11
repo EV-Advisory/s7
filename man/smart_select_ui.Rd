@@ -4,10 +4,12 @@
 \alias{smart_select_ui}
 \title{Framework 7 select}
 \usage{
-smart_select_ui(id)
+smart_select_ui(id, ...)
 }
 \arguments{
 \item{id}{the namespace id of the select UI}
+
+\item{...}{parameters passed to the uiOutput}
 }
 \description{
 The framework 7 select input that
