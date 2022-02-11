@@ -4,7 +4,7 @@
 \alias{apex_server}
 \title{Apex Charts}
 \usage{
-apex_server(input, output, session, apexc = NULL, base_data)
+apex_server(input, output, session, apexc = NULL, base_data = NULL)
 }
 \arguments{
 \item{input}{list of inputs used in the shiny application session}

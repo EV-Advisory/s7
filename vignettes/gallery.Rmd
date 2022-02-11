@@ -2,10 +2,7 @@
 title: "f7: Modules Gallery"
 output: html_document
 runtime: shiny
-vignette: >
-  %\VignetteIndexEntry{f7: Modules Gallery}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+
 ---
 
 ```{r, include = FALSE}
