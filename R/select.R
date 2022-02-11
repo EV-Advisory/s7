@@ -6,15 +6,15 @@
 #' a compatible UI useful in PWAs
 #'
 #' @param id  the namespace id of the select UI
-#'
+#' @param ... additional parameters to uiOutput function
 #'
 #'@importFrom shiny NS
 #'@importFrom shiny uiOutput
 #'@export
 
-select_ui <- function(id) {
+select_ui <- function(id, ...) {
   ns <- NS(id)
-  uiOutput(ns("select-ui"))
+  uiOutput(ns("select-ui"), ...)
 }
 
 
@@ -60,7 +60,8 @@ select_server <-
         label = label(),
         choices = choices(),
         selected = selected(),
-        width = width()
+        width = width(),
+        ...
       )
     })
 

@@ -6,15 +6,15 @@
 #' a compatible UI useful in PWAs
 #'
 #' @param id  the namespace id of the select UI
-#'
+#' @param ... parameters passed to the uiOutput
 #'
 #'@importFrom shiny NS
 #'@importFrom shiny uiOutput
 #'@export
 
-smart_select_ui <- function(id) {
+smart_select_ui <- function(id, ...) {
   ns <- NS(id)
-  uiOutput(ns("select-ui"))
+  uiOutput(ns("select-ui"), ...)
 }
 
 
@@ -35,7 +35,6 @@ smart_select_ui <- function(id) {
 #' @param ... Additional parameters for f7SmartSelect()
 #'
 #' @export
-#' @importFrom shinyMobile f7SmartSelect
 
 
 smart_select_server <-
@@ -52,20 +51,23 @@ smart_select_server <-
     session$ns -> ns
     label = to_reactive(label)
     choices = to_reactive(choices)
-    selected = to_reactive(selected)
+    selected = if(!is.null(selected)) to_reactive(selected) else reactive({
+      req(choices())
+      choices()[1]})
     multiple = to_reactive(multiple)
     width = to_reactive(width)
     openIn = to_reactive(openIn)
 
     output[['select-ui']] <- renderUI({
-      shinyMobile::f7SmartSelect(
+      f7SmartSelect(
         inputId = ns("select"),
         label = label(),
         choices = choices(),
         selected = selected(),
         multiple = multiple(),
         width = width(),
-        openIn = openIn()
+        openIn = openIn(),
+        ...
       )
     })
 
