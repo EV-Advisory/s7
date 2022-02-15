@@ -63,7 +63,7 @@ smart_select_server <-
     openIn = to_reactive(openIn)
 
     output[['select-ui']] <- renderUI({
-      f7SmartSelect(
+      shinyMobile::f7SmartSelect(
         inputId = ns("select"),
         label = label(),
         choices = choices(),
