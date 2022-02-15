@@ -7,7 +7,6 @@
 #' @importFrom jsonlite toJSON
 #'
 #' @seealso \link{f7SmartSelect}
-#' @export
 #'
 
 f7SmartSelect <- function (inputId,
