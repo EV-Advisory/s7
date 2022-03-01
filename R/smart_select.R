@@ -48,6 +48,7 @@ smart_select_server <-
            width = NULL,
            openIn = c('page', 'sheet', 'popup', 'popover'),
            ...) {
+
     session$ns -> ns
     label = to_reactive(label)
     choices = to_reactive(choices)
@@ -61,7 +62,8 @@ smart_select_server <-
     multiple = to_reactive(multiple)
     width = to_reactive(width)
     openIn = to_reactive(openIn)
-
+  # dotlist<-do.call(what = 'to_reactive',args = as.list(...))
+  # match.arg()
     output[['select-ui']] <- renderUI({
       shinyMobile::f7SmartSelect(
         inputId = ns("select"),
