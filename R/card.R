@@ -10,7 +10,7 @@
 #' @export
 card_ui <- function(id) {
   ns <- NS(id)
-  uiOutput(ns("card"))
+  uiOutput(ns("card-ui"))
 }
 
 
@@ -51,7 +51,7 @@ card_server <- function(input,
   height <- to_reactive(height)
 
 
-  output[['card']] <- renderUI(shinyMobile::f7Card(
+  output[['card-ui']] <- renderUI(shinyMobile::f7Card(
     title = name(),
     image = image_(),
     footer = footer(),

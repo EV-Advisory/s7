@@ -4,10 +4,12 @@
 \alias{select_ui}
 \title{Framework 7 select}
 \usage{
-select_ui(id)
+select_ui(id, ...)
 }
 \arguments{
 \item{id}{the namespace id of the select UI}
+
+\item{...}{additional parameters to uiOutput function}
 }
 \description{
 The framework 7 select input that
