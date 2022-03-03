@@ -13,7 +13,8 @@ smart_select_server(
   selected = NULL,
   multiple = F,
   width = NULL,
-  openIn = c("page", "sheet", "popup", "popover")
+  openIn = c("page", "sheet", "popup", "popover"),
+  ...
 )
 }
 \arguments{
@@ -34,6 +35,8 @@ smart_select_server(
 \item{width}{Width of the select UI}
 
 \item{openIn}{option for the method of opening smart select}
+
+\item{...}{Additional parameters for f7SmartSelect()}
 }
 \description{
 The server-side function used in

@@ -6,15 +6,15 @@
 #' a compatible UI useful in PWAs
 #'
 #' @param id  the namespace id of the select UI
-#'
+#' @param ... additional parameters to uiOutput function
 #'
 #'@importFrom shiny NS
 #'@importFrom shiny uiOutput
 #'@export
 
-select_ui <- function(id) {
+select_ui <- function(id, ...) {
   ns <- NS(id)
-  uiOutput(ns("select"))
+  uiOutput(ns("select-ui"), ...)
 }
 
 
@@ -30,6 +30,7 @@ select_ui <- function(id) {
 #' @param selected The option selected by default for the select UI
 #' @param width Width of the select UI
 #' @param req_ If a specific requirement is to be included, create a string of R code to evaluate the requirement (i.e. \code{req()})
+#' @param ... additional parameters for f7Select
 #'
 #' @export
 #' @import magrittr
@@ -44,21 +45,23 @@ select_server <-
            choices,
            selected = NULL,
            width = NULL,
-           req_ = NULL) {
+           req_ = NULL,
+           ...) {
     session$ns -> ns
     label = to_reactive(label)
     choices = to_reactive(choices)
     selected = to_reactive(selected)
     width = to_reactive(width)
 
-    output[['select']] <- renderUI({
+    output[['select-ui']] <- renderUI({
       if(!is.null(req_))req(eval(parse(paste0(req_))))
       shinyMobile::f7Select(
         inputId = ns("select"),
         label = label(),
         choices = choices(),
         selected = selected(),
-        width = width()
+        width = width(),
+        ...
       )
     })
 

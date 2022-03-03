@@ -4,10 +4,14 @@
 \alias{slider_ui}
 \title{Slider UI in the Framework 7 structure}
 \usage{
-slider_ui(id)
+slider_ui(id, container = div, class = "block")
 }
 \arguments{
 \item{id}{The id used to reference the slider object}
+
+\item{container}{The container for wrapping the render block in HTML}
+
+\item{class}{The CSS class specified for the uiOutput function call}
 }
 \description{
 A UI-side declaration of the slider UI used for selecting
