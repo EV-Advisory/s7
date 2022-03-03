@@ -1,0 +1,135 @@
+---
+title: "f7: Modules Gallery"
+output: html_document
+runtime: shiny
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  # collapse = TRUE,
+  echo = F,
+  comment = "#>"
+)
+
+library(f7,quietly = T)
+library(shinyMobile)
+
+apps<-list.files(system.file('examples',package = 'f7'),full.names = T)
+
+app_code<-lapply(apps,function(x){readLines(paste0(x,"/app.R"))->code
+  code<-code[which(nchar(code)>0)]
+  })
+
+```
+
+## Gallery  
+  
+> A gallery of the modules available in `f7`    
+  
+Below are individual tabs that have proven and tested modules displayed individually.  
+
+### Modules {.tabset}  
+
+
+#### 1 - Toggle  
+<details>
+  <summary>Click here to see the code!</summary>  
+```{}
+`r paste0(sapply(app_code[[1]],function(x) as.character(x)),collapse="\n")`  
+```
+</details>   
+
+```{r module-1}
+  shinyAppDir(
+  apps[1],
+  options = list(
+    width = "100%", height = 550
+  )
+)
+```
+
+
+#### 2 - Slider  
+<details>
+  <summary>Click here to see the code!</summary>  
+```{}
+`r paste0(sapply(app_code[[2]],function(x) as.character(x)),collapse="\n")`  
+```
+</details>   
+
+```{r module-2}
+  shinyAppDir(
+  apps[2],
+  options = list(
+    width = "100%", height = 550
+  )
+)
+```
+
+#### 3 - Smart Select  
+<details>
+  <summary>Click here to see the code!</summary>  
+```{}
+`r paste0(sapply(app_code[[3]],function(x) as.character(x)),collapse="\n")`  
+```
+</details>   
+
+```{r module-3}
+  shinyAppDir(
+  apps[3],
+  options = list(
+    width = "100%", height = 550
+  )
+)
+```
+
+#### 4 - Select  
+<details>
+  <summary>Click here to see the code!</summary>  
+```{}
+`r paste0(sapply(app_code[[4]],function(x) as.character(x)),collapse="\n")`  
+```
+</details>   
+
+```{r module-4}
+  shinyAppDir(
+  apps[4],
+  options = list(
+    width = "100%", height = 550
+  )
+)
+```
+
+#### 5 - Stepper  
+<details>
+  <summary>Click here to see the code!</summary>  
+```{}
+`r paste0(sapply(app_code[[5]],function(x) as.character(x)),collapse="\n")`  
+```
+</details>   
+
+```{r module-5}
+  shinyAppDir(
+  apps[5],
+  options = list(
+    width = "100%", height = 550
+  )
+)
+```
+
+#### 6 - Apex  
+<details>
+  <summary>Click here to see the code!</summary>  
+```{}
+`r paste0(sapply(app_code[[6]],function(x) as.character(x)),collapse="\n")`  
+```
+</details>   
+
+```{r module-6}
+  shinyAppDir(
+  apps[6],
+  options = list(
+    width = "100%", height = 550
+  )
+)
+```

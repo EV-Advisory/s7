@@ -1,15 +1,19 @@
 Package: f7
 Type: Package
 Title: Framework 7 Modules for PWA development
-Version: 0.1.1.1
+Version: 0.1.5
 Author: Harry Rosen
 Maintainer: Esteban Valencia <evalencia@harryrosen.com>
 Description: The package uses the shinyMobile package as the primary base 
           of functions that allow a user to create server side functions for 
           rapid prototyping with a framework 7 compatible functions.
 License: file LICENSE
-Depends: shiny, shinyMobile, magrittr
-Imports: apexcharter, htmlwidgets
+Depends: shiny, magrittr
+Imports: apexcharter, shinyMobile, htmlwidgets, dplyr, jsonlite
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.2
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr

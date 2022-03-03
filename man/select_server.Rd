@@ -12,7 +12,8 @@ select_server(
   choices,
   selected = NULL,
   width = NULL,
-  req_ = NULL
+  req_ = NULL,
+  ...
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ select_server(
 \item{width}{Width of the select UI}
 
 \item{req_}{If a specific requirement is to be included, create a string of R code to evaluate the requirement (i.e. \code{req()})}
+
+\item{...}{additional parameters for f7Select}
 }
 \description{
 The server-side function used in
