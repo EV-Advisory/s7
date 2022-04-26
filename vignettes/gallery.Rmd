@@ -14,11 +14,11 @@ knitr::opts_chunk$set(
 library(f7,quietly = T)
 library(shinyMobile)
 
-apps<-list.files(system.file('examples',package = 'f7'),full.names = T)
+apps<-list.files(system.file('examples',package = 'f7'),full.names = T)%>%setNames(.,basename(.))
 
 app_code<-lapply(apps,function(x){readLines(paste0(x,"/app.R"))->code
   code<-code[which(nchar(code)>0)]
-  })
+  })%>%setNames(.,nm = basename(apps))
 
 ```
 
@@ -31,105 +31,22 @@ Below are individual tabs that have proven and tested modules displayed individu
 ### Modules {.tabset}  
 
 
-#### 1 - Toggle  
-<details>
-  <summary>Click here to see the code!</summary>  
-```{}
-`r paste0(sapply(app_code[[1]],function(x) as.character(x)),collapse="\n")`  
-```
-</details>   
+```{r test_modules, results='asis'}
 
-```{r module-1}
-  shinyAppDir(
-  apps[1],
-  options = list(
-    width = "100%", height = 550
-  )
-)
-```
+contents <- purrr::map(basename(apps), ~ {knitr::knit_expand(text = c(
+  "#### {{name}}\n",
+  "<details>",
+  "<summary>Click here to see the code!</summary>",
+  "```{r}",
+  'cat(paste0(sapply(app_code[["{{name}}"]],function(x) as.character(x)),collapse="\n"))',
+  "```\n",
+  "</details>",
+  "```{r}",
+  'shinyAppDir(apps[["{{name}}"]],options = list(width = "100%", height = 550))',
+    "```\n"
+), name = .x)})
+res = knitr::knit_child(text = unlist(contents), quiet = TRUE)
+cat(res, sep = "\n")
 
-
-#### 2 - Slider  
-<details>
-  <summary>Click here to see the code!</summary>  
-```{}
-`r paste0(sapply(app_code[[2]],function(x) as.character(x)),collapse="\n")`  
-```
-</details>   
-
-```{r module-2}
-  shinyAppDir(
-  apps[2],
-  options = list(
-    width = "100%", height = 550
-  )
-)
 ```
 
-#### 3 - Smart Select  
-<details>
-  <summary>Click here to see the code!</summary>  
-```{}
-`r paste0(sapply(app_code[[3]],function(x) as.character(x)),collapse="\n")`  
-```
-</details>   
-
-```{r module-3}
-  shinyAppDir(
-  apps[3],
-  options = list(
-    width = "100%", height = 550
-  )
-)
-```
-
-#### 4 - Select  
-<details>
-  <summary>Click here to see the code!</summary>  
-```{}
-`r paste0(sapply(app_code[[4]],function(x) as.character(x)),collapse="\n")`  
-```
-</details>   
-
-```{r module-4}
-  shinyAppDir(
-  apps[4],
-  options = list(
-    width = "100%", height = 550
-  )
-)
-```
-
-#### 5 - Stepper  
-<details>
-  <summary>Click here to see the code!</summary>  
-```{}
-`r paste0(sapply(app_code[[5]],function(x) as.character(x)),collapse="\n")`  
-```
-</details>   
-
-```{r module-5}
-  shinyAppDir(
-  apps[5],
-  options = list(
-    width = "100%", height = 550
-  )
-)
-```
-
-#### 6 - Apex  
-<details>
-  <summary>Click here to see the code!</summary>  
-```{}
-`r paste0(sapply(app_code[[6]],function(x) as.character(x)),collapse="\n")`  
-```
-</details>   
-
-```{r module-6}
-  shinyAppDir(
-  apps[6],
-  options = list(
-    width = "100%", height = 550
-  )
-)
-```
