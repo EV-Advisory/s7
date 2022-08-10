@@ -13,7 +13,21 @@ smart_select2_server(input, output, session, ...)
 
 \item{session}{The shiny app session object}
 
-\item{...}{Additional parameters for f7SmartSelect()}
+\item{...}{
+  Arguments passed on to \code{\link[shinyMobile:smartselect]{shinyMobile::f7SmartSelect}}
+  \describe{
+    \item{\code{inputId}}{The id of the input object.}
+    \item{\code{label}}{Select input label.}
+    \item{\code{choices}}{The new choices.}
+    \item{\code{selected}}{The new value for the input.}
+    \item{\code{openIn}}{Smart select type: either \code{c("sheet", "popup", "popover")}.
+Note that the search bar is only available when the type is popup.}
+    \item{\code{searchbar}}{Whether to enable the search bar. TRUE by default.}
+    \item{\code{multiple}}{Whether to allow multiple values.}
+    \item{\code{maxlength}}{Maximum items to select when multiple is TRUE.}
+    \item{\code{virtualList}}{Enable Virtual List for smart select if your select has a lot
+of options. Default to FALSE.}
+  }}
 }
 \description{
 The server-side function used in
