@@ -43,12 +43,10 @@ apex_ui <- function(id) {
 apex_server <- function(input, output, session, apexc = NULL, base_data = NULL) {
   session$ns -> ns
 
-  apex_obj<-reactiveVal(value = NULL)
   #Output of the visualization
   output[['viz']] <- apexcharter::renderApexchart({
     req(is.reactive(apexc))
-    apex_obj(isolate(apexc()))
-    apex_obj()
+    apexc()
   })
 
   #output of the UI to showcase the visualization
@@ -56,11 +54,4 @@ apex_server <- function(input, output, session, apexc = NULL, base_data = NULL) 
     req(apexc())
     apexcharter::apexchartOutput(outputId = ns("viz"))
   })
-
-if(!is.null(base_data))observeEvent(input$update | nrow(base_data())>0,{
-
-    apexchartProxy(ns("viz")) %>%
-      ax_proxy_series(base_data())
-  },ignoreInit = T)
-
 }
