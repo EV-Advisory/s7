@@ -29,7 +29,7 @@ smart_select2_ui <- function(id, ...) {
 #' @param ... Additional parameters for f7SmartSelect()
 #'
 #' @importFrom stats setNames
-#' @inheritParams shinyMobile::f7SmartSelect
+#' @inheritDotParams shinyMobile::f7SmartSelect
 #' @export
 
 
