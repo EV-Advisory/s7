@@ -9,8 +9,6 @@
 #' @importFrom shiny uiOutput
 #'
 #' @export
-
-
 apex_ui <- function(id) {
   ns <- NS(id)
   uiOutput(ns("apex"))
@@ -37,9 +35,6 @@ apex_ui <- function(id) {
 #'@importFrom shiny is.reactive
 #'
 #'@export
-
-
-
 apex_server <- function(input, output, session, apexc = NULL, base_data = NULL) {
   session$ns -> ns
 
