@@ -10,6 +10,7 @@
 #'
 #' @return Reactive function
 #'
+#' @importFrom shiny reactive
 #'
 
 to_reactive<-function(x){

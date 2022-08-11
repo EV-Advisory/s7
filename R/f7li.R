@@ -34,7 +34,7 @@ f7li_ui <- function(id) {
 #' @param right The component on the righthand side of the list item
 #' @param ... Item text
 #'
-#' @import shiny
+#' @importFrom shiny renderUI
 #' @import shinyMobile
 #'
 #' @export

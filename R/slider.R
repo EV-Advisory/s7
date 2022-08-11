@@ -8,6 +8,7 @@
 #' @param class The CSS class specified for the uiOutput function call
 #' @importFrom shiny NS
 #' @importFrom shiny uiOutput
+#' @importFrom shiny div
 #' @export
 slider_ui <- function(id, container = div,class = "block") {
   ns <- NS(id)

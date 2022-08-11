@@ -5,7 +5,7 @@
 #'
 #' @param id is unique ID associated with the button for the UI namespace
 #'
-#' @import shiny
+#' @importFrom shiny uiOutput
 #'
 #' @export
 card_ui <- function(id) {
@@ -32,6 +32,7 @@ card_ui <- function(id) {
 #' @param ... The other components of the card UI
 #'
 #' @importFrom shinyMobile f7Card
+#' @importFrom shiny renderUI
 #' @export
 #'
 card_server <- function(input,
