@@ -5,7 +5,6 @@ on:
     branches:
       - 'sprint**' # Support wildcard matching
       - 'hotfix**'
-      - 'RPKG-**'
     tags:
       - '*'
 
@@ -22,7 +21,7 @@ jobs:
         pr_title: "Pulling ${{ github.ref }} from ${{ github.actor }} into dev" # Title of pull request
         pr_body: ":crown: *An automated PR*"           # Full markdown support, requires pr_title to be set
         pr_reviewer: "${{ github.actor }}"             # Comma-separated list (no spaces)
-        pr_assignee: "${{ github.actor }}"                        # Comma-separated list (no spaces)
+        pr_assignee: "${{ github.actor }}"             # Comma-separated list (no spaces)
         pr_label: "self-review, dev"                   # Comma-separated list (no spaces)
         pr_allow_empty: false                          # Creates pull request even if there are no changes
         github_token: ${{ secrets.GITHUB_TOKEN }}
