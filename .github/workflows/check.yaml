@@ -6,7 +6,6 @@ on:
       - main
       - master
       - dev
-      - RPKG-*
 
 name: R-CMD-check
 
