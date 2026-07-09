@@ -2,3 +2,4 @@
 .Rprofile
 .Rhistory
 inst/doc
+.codegraph/
